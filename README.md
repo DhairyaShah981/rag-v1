@@ -41,6 +41,30 @@ Laptop and Vercel point at the **same** Upstash index — that's what makes loca
 ingestion work against the hosted app. A mismatched URL means the app queries an
 empty index and every answer is a refusal.
 
+## Demo queries
+
+Each exercises a different path (see `eval/test_cases.json`):
+
+| Ask | Exercises | Expected |
+|---|---|---|
+| Refund if I cancel within the first 7 days? | txt clause lookup | Full refund minus ₹5,000 registration fee `[1]` |
+| Can I still get a refund 20 days after my first class? | applying a stated threshold | No — no refund after 15 days (except medical) |
+| What's the fee for the Scaler Academy software program? | pricing JSON | ₹3,50,000 + ₹5,000 reg, 0% EMI |
+| Is there an EMI option? | pricing JSON | 0% no-cost EMI over 12/18/24 months |
+| What do I need to be eligible? | txt lookup | Bachelor's 50%+, SST 60%+, 18+, 6 mo coding for Academy |
+| Do I get a certificate, and how? | FAQ Q&A | Yes — 80% attendance + capstone |
+| What does the curriculum cover? | PDF (page-chunked) | 15 months, six modules, capstone |
+| For Data Science, what's the fee and refund window? | multi-hop (2 docs) | ₹3,00,000 + 7/15-day refund window |
+| Do you offer visa sponsorship? | out-of-corpus | Clean refusal, `no_context` |
+
+Every answer returns expandable source chunks with similarity scores; one JSON
+trace per query goes to the Vercel logs.
+
+## Eval snapshot
+
+`npm run eval` → retrieval recall@6 **100%**, faithfulness **100%**,
+correctness **84%**, refusal accuracy **100%**. Gate: **PASS**.
+
 ## Layout
 
 ```
