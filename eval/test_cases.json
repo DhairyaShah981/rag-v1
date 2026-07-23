@@ -1,0 +1,75 @@
+{
+  "_note": "10 cases per DESIGN §f. expected_source/expected_answer are provisional and MUST be reconciled with the real corpus filenames + wording after first ingest (checkpoint 2/4). type drives which tier a case counts toward. 'out_of_corpus' expects the fixed refusal and is scored separately (Tier 3), never averaged into correctness.",
+  "cases": [
+    {
+      "id": "refund-window",
+      "query": "What is the refund policy if I cancel within the first week?",
+      "expected_answer": "A full/partial refund is available within the stated cooling-off window; specifics depend on the refund policy clause.",
+      "expected_source": "refund_policy.txt",
+      "type": "direct_lookup"
+    },
+    {
+      "id": "refund-after-deadline",
+      "query": "Can I get a refund after 15 days?",
+      "expected_answer": "Refunds are governed by the refund window; after the deadline refunds are typically not available or prorated per the policy.",
+      "expected_source": "refund_policy.txt",
+      "type": "direct_lookup"
+    },
+    {
+      "id": "program-fee",
+      "query": "How much does the program cost?",
+      "expected_answer": "The program fee is listed in the pricing information for that program.",
+      "expected_source": "pricing.json",
+      "type": "pricing_json_only"
+    },
+    {
+      "id": "eligibility-cutoff",
+      "query": "What are the eligibility requirements to enroll?",
+      "expected_answer": "Eligibility is defined by the eligibility criteria (e.g. education/experience cutoffs).",
+      "expected_source": "eligibility.txt",
+      "type": "direct_lookup"
+    },
+    {
+      "id": "faq-lookup",
+      "query": "Do you provide a certificate on completion?",
+      "expected_answer": "Answered by the FAQ regarding certification.",
+      "expected_source": "faq.txt",
+      "type": "direct_lookup"
+    },
+    {
+      "id": "multi-hop",
+      "query": "If I'm eligible for the program, what fee will I pay and what is the refund window?",
+      "expected_answer": "Combines eligibility, fee, and refund window — requires facts from more than one document.",
+      "expected_source": "pricing.json",
+      "type": "multi_hop"
+    },
+    {
+      "id": "pdf-only",
+      "query": "What does the curriculum / program handbook cover?",
+      "expected_answer": "Answered from the PDF handbook content.",
+      "expected_source": "handbook.pdf",
+      "type": "pdf_only"
+    },
+    {
+      "id": "pricing-emi",
+      "query": "Is there an EMI or installment option for the fee?",
+      "expected_answer": "Payment/installment options as listed in the pricing data.",
+      "expected_source": "pricing.json",
+      "type": "pricing_json_only"
+    },
+    {
+      "id": "out-of-corpus-visa",
+      "query": "Do you offer visa sponsorship for international students?",
+      "expected_answer": "I don't have information about that in the available documents.",
+      "expected_source": null,
+      "type": "out_of_corpus"
+    },
+    {
+      "id": "ambiguous",
+      "query": "What about the deadline?",
+      "expected_answer": "Ambiguous — deadline for what (refund, enrollment, payment)? A good answer surfaces the relevant deadline(s) it can support or asks for specifics.",
+      "expected_source": "refund_policy.txt",
+      "type": "ambiguous"
+    }
+  ]
+}

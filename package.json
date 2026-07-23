@@ -1,0 +1,30 @@
+{
+  "name": "scaler-rag",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "ingest": "tsx scripts/ingest.ts",
+    "ingest:force": "tsx scripts/ingest.ts --force",
+    "eval": "tsx eval/run_eval.ts"
+  },
+  "dependencies": {
+    "@upstash/vector": "^1.2.1",
+    "js-tiktoken": "^1.0.15",
+    "next": "^15.1.6",
+    "openai": "^4.79.1",
+    "pdf-parse": "^1.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
