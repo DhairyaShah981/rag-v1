@@ -1,9 +1,9 @@
 import { readFileSync } from "node:fs";
 import OpenAI from "openai";
-import { CONFIG, ENV, REFUSAL } from "../src/lib/config.js";
-import { generate } from "../src/lib/generate.js";
-import { retrieve } from "../src/lib/retrieve.js";
-import type { Scored } from "../src/lib/types.js";
+import { CONFIG, ENV, REFUSAL } from "../src/lib/config";
+import { generate } from "../src/lib/generate";
+import { retrieve } from "../src/lib/retrieve";
+import type { Scored } from "../src/lib/types";
 
 type Case = {
   id: string;

@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { getEncoding } from "js-tiktoken";
-import { CONFIG } from "./config.js";
-import type { Chunk, RawDoc } from "./types.js";
+import { CONFIG } from "./config";
+import type { Chunk, RawDoc } from "./types";
 
 // cl100k_base is close enough for sizing; exact match to the embed tokenizer
 // isn't needed — we only use counts to bound chunk length. (DESIGN §b)

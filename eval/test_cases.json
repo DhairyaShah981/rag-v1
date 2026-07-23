@@ -1,59 +1,59 @@
 {
-  "_note": "10 cases per DESIGN §f. expected_source/expected_answer are provisional and MUST be reconciled with the real corpus filenames + wording after first ingest (checkpoint 2/4). type drives which tier a case counts toward. 'out_of_corpus' expects the fixed refusal and is scored separately (Tier 3), never averaged into correctness.",
+  "_note": "10 cases per DESIGN §f, reconciled to the generated corpus. 'type' drives which tier a case counts toward. 'out_of_corpus' expects the fixed refusal and is scored separately (Tier 3), never averaged into correctness. Author wrote both questions and answers — see DESIGN §f limitations.",
   "cases": [
     {
-      "id": "refund-window",
-      "query": "What is the refund policy if I cancel within the first week?",
-      "expected_answer": "A full/partial refund is available within the stated cooling-off window; specifics depend on the refund policy clause.",
+      "id": "refund-cooling-off",
+      "query": "If I cancel within the first 7 days of my first class, how much do I get back?",
+      "expected_answer": "A full (100%) refund of the program fee, excluding the one-time non-refundable registration fee of Rs. 5,000, provided you attended no more than two live sessions.",
       "expected_source": "refund_policy.txt",
       "type": "direct_lookup"
     },
     {
-      "id": "refund-after-deadline",
-      "query": "Can I get a refund after 15 days?",
-      "expected_answer": "Refunds are governed by the refund window; after the deadline refunds are typically not available or prorated per the policy.",
+      "id": "refund-after-15-days",
+      "query": "Can I still get a refund 20 days after my first class?",
+      "expected_answer": "No. No refund is available once 15 calendar days have elapsed from the first live class, except under the medical-withdrawal provision.",
       "expected_source": "refund_policy.txt",
       "type": "direct_lookup"
     },
     {
-      "id": "program-fee",
-      "query": "How much does the program cost?",
-      "expected_answer": "The program fee is listed in the pricing information for that program.",
+      "id": "academy-fee",
+      "query": "What is the fee for the Scaler Academy software development program?",
+      "expected_answer": "Rs. 3,50,000 program fee plus a one-time Rs. 5,000 registration fee, with 0% no-cost EMI available.",
       "expected_source": "pricing.json",
       "type": "pricing_json_only"
     },
     {
-      "id": "eligibility-cutoff",
-      "query": "What are the eligibility requirements to enroll?",
-      "expected_answer": "Eligibility is defined by the eligibility criteria (e.g. education/experience cutoffs).",
+      "id": "eligibility-criteria",
+      "query": "What do I need to be eligible to enroll?",
+      "expected_answer": "A bachelor's degree in any discipline with at least 50% (final-year students may apply conditionally), clearing the Scaler Skills Test with 60%+, and being at least 18. Scaler Academy also needs 6 months of prior programming experience.",
       "expected_source": "eligibility.txt",
       "type": "direct_lookup"
     },
     {
-      "id": "faq-lookup",
-      "query": "Do you provide a certificate on completion?",
-      "expected_answer": "Answered by the FAQ regarding certification.",
+      "id": "certificate-faq",
+      "query": "Do I get a certificate at the end, and what do I need to earn it?",
+      "expected_answer": "Yes — a verified certificate of completion is awarded if you maintain at least 80% attendance and clear the capstone project.",
       "expected_source": "faq.txt",
       "type": "direct_lookup"
     },
     {
-      "id": "multi-hop",
-      "query": "If I'm eligible for the program, what fee will I pay and what is the refund window?",
-      "expected_answer": "Combines eligibility, fee, and refund window — requires facts from more than one document.",
+      "id": "multi-hop-eligible-fee-refund",
+      "query": "For the Data Science program, what fee will I pay and what is the refund window if I change my mind?",
+      "expected_answer": "The Data Science and Machine Learning fee is Rs. 3,00,000 plus Rs. 5,000 registration. Refund: full within 7 days of the first class, 50% within 15 days, none after 15 days (except medical).",
       "expected_source": "pricing.json",
       "type": "multi_hop"
     },
     {
-      "id": "pdf-only",
-      "query": "What does the curriculum / program handbook cover?",
-      "expected_answer": "Answered from the PDF handbook content.",
-      "expected_source": "handbook.pdf",
+      "id": "curriculum-pdf",
+      "query": "What does the Academy curriculum cover and how is it structured?",
+      "expected_answer": "A 15-month program across six modules: Foundations, Data Structures & Algorithms, Low-Level Design, High-Level & System Design, a specialisation elective, and an eight-week capstone project.",
+      "expected_source": "curriculum_handbook.pdf",
       "type": "pdf_only"
     },
     {
-      "id": "pricing-emi",
-      "query": "Is there an EMI or installment option for the fee?",
-      "expected_answer": "Payment/installment options as listed in the pricing data.",
+      "id": "emi-option",
+      "query": "Is there an EMI or installment plan for paying the fee?",
+      "expected_answer": "Yes — 0% no-cost EMI is available over 12, 18, or 24 months through financing partners.",
       "expected_source": "pricing.json",
       "type": "pricing_json_only"
     },
@@ -65,9 +65,9 @@
       "type": "out_of_corpus"
     },
     {
-      "id": "ambiguous",
-      "query": "What about the deadline?",
-      "expected_answer": "Ambiguous — deadline for what (refund, enrollment, payment)? A good answer surfaces the relevant deadline(s) it can support or asks for specifics.",
+      "id": "ambiguous-deadline",
+      "query": "What is the deadline?",
+      "expected_answer": "Ambiguous — could mean the refund window (7/15 days), the conditional-enrolment degree-submission window (6 months), or the SST reattempt cooling period. A good answer surfaces the relevant deadline(s) it can support rather than guessing one.",
       "expected_source": "refund_policy.txt",
       "type": "ambiguous"
     }

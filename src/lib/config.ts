@@ -11,13 +11,13 @@ if (existsSync(".env.local")) {
   }
 }
 
-function required(name: string): string {
-  const v = process.env[name];
-  if (!v) {
-    // Fail loudly at import, not silently on the first query. (DESIGN §i)
-    throw new Error(`Missing required env var: ${name}. See .env.local.example`);
+function required(...names: string[]): string {
+  for (const n of names) {
+    const v = process.env[n];
+    if (v) return v;
   }
-  return v;
+  // Fail loudly at import, not silently on the first query. (DESIGN §i)
+  throw new Error(`Missing required env var: ${names.join(" or ")}. See .env.local.example`);
 }
 
 // Getters validate on first access. embed.ts / vectorstore.ts read these at
@@ -28,11 +28,12 @@ export const ENV = {
   get OPENAI_API_KEY() {
     return required("OPENAI_API_KEY");
   },
+  // Accept the Upstash Vercel-Marketplace prefix (rag_*) or the plain name.
   get UPSTASH_VECTOR_REST_URL() {
-    return required("UPSTASH_VECTOR_REST_URL");
+    return required("UPSTASH_VECTOR_REST_URL", "rag_UPSTASH_VECTOR_REST_URL");
   },
   get UPSTASH_VECTOR_REST_TOKEN() {
-    return required("UPSTASH_VECTOR_REST_TOKEN");
+    return required("UPSTASH_VECTOR_REST_TOKEN", "rag_UPSTASH_VECTOR_REST_TOKEN");
   },
 };
 

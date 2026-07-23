@@ -1,0 +1,50 @@
+[
+  {
+    "program": "Scaler Academy (Software Development)",
+    "track": "Software Development and System Design",
+    "duration_months": 15,
+    "fee_inr": 350000,
+    "registration_fee_inr": 5000,
+    "emi": {
+      "available": true,
+      "interest": "0% no-cost EMI",
+      "tenures_months": [12, 18, 24],
+      "monthly_from_inr": 14583
+    },
+    "scholarship": "Up to 20% merit scholarship based on the Scaler Skills Test score",
+    "format": "Live online, weekends and weekday evenings",
+    "includes": ["Live classes", "Mentorship", "Capstone project", "Career services", "Lifetime content access"]
+  },
+  {
+    "program": "Data Science and Machine Learning",
+    "track": "Data Science, ML, and AI",
+    "duration_months": 11,
+    "fee_inr": 300000,
+    "registration_fee_inr": 5000,
+    "emi": {
+      "available": true,
+      "interest": "0% no-cost EMI",
+      "tenures_months": [12, 18, 24],
+      "monthly_from_inr": 12500
+    },
+    "scholarship": "Up to 15% merit scholarship based on the Scaler Skills Test score",
+    "format": "Live online, weekends and weekday evenings",
+    "includes": ["Live classes", "Python and ML foundations", "Capstone project", "Career services"]
+  },
+  {
+    "program": "DevOps and Cloud Engineering",
+    "track": "DevOps, SRE, and Cloud",
+    "duration_months": 8,
+    "fee_inr": 200000,
+    "registration_fee_inr": 5000,
+    "emi": {
+      "available": true,
+      "interest": "0% no-cost EMI",
+      "tenures_months": [12, 18],
+      "monthly_from_inr": 11111
+    },
+    "scholarship": "Up to 10% merit scholarship",
+    "format": "Live online, weekends",
+    "includes": ["Live classes", "Hands-on labs", "Capstone project", "Career services"]
+  }
+]

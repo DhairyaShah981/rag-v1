@@ -1,7 +1,7 @@
-import { CONFIG } from "./config.js";
-import { embedOne } from "./embed.js";
-import type { Scored } from "./types.js";
-import { query } from "./vectorstore.js";
+import { CONFIG } from "./config";
+import { embedOne } from "./embed";
+import type { Scored } from "./types";
+import { query } from "./vectorstore";
 
 export type RetrieveResult = {
   scored: Scored[]; // ALL fetched, sorted desc by score (rejected included for tracing)

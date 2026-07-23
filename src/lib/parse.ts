@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { basename, extname } from "node:path";
-import type { RawDoc } from "./types.js";
+import type { RawDoc } from "./types";
 
 // path → RawDoc[]. Isolates all per-filetype extraction quirks (DESIGN §i).
 // Each RawDoc is a *semantic unit*: a Q&A pair / clause (txt), a page (pdf),

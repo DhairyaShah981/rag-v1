@@ -1,6 +1,6 @@
 import OpenAI from "openai";
-import { CONFIG, ENV } from "./config.js";
-import type { Scored } from "./types.js";
+import { CONFIG, ENV } from "./config";
+import type { Scored } from "./types";
 
 const openai = new OpenAI({ apiKey: ENV.OPENAI_API_KEY });
 

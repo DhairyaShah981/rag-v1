@@ -1,9 +1,9 @@
 import { randomUUID } from "node:crypto";
-import { CONFIG, REFUSAL } from "./config.js";
-import { generate } from "./generate.js";
-import { retrieve } from "./retrieve.js";
-import { writeTrace } from "./trace.js";
-import type { Scored } from "./types.js";
+import { CONFIG, REFUSAL } from "./config";
+import { generate } from "./generate";
+import { retrieve } from "./retrieve";
+import { writeTrace } from "./trace";
+import type { Scored } from "./types";
 
 export type Source = {
   id: string;

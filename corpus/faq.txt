@@ -1,0 +1,28 @@
+Scaler — Frequently Asked Questions
+
+Q: Do I get a certificate after completing the program?
+A: Yes. On completing your program with at least 80% attendance and clearing the capstone project, you receive a verified Scaler certificate of completion. The certificate includes a unique verification ID that employers can check online.
+
+Q: Can I pay the fee in instalments?
+A: Yes. Scaler offers a no-cost EMI option through our financing partners. You can split the program fee over 12, 18, or 24 months at 0% interest. A one-time processing check is run by the financing partner before approval.
+
+Q: What are the class timings?
+A: Live classes are held on weekends (Saturday and Sunday) and on two weekday evenings. Sessions are recorded, so you can revisit any class on demand if you miss it.
+
+Q: Is placement guaranteed?
+A: Placement is not guaranteed. Scaler provides structured career services — mock interviews, resume reviews, and referrals to hiring partners — to learners who complete the program and meet the placement-eligibility criteria. Outcomes depend on individual performance.
+
+Q: What programming language should I already know before joining Scaler Academy?
+A: Any one language is enough. You should be comfortable writing basic programs (loops, functions, arrays) in a language such as C++, Java, Python, or JavaScript. The curriculum then standardises everyone on a common stack.
+
+Q: Can I switch between the Software Development and Data Science tracks?
+A: A one-time track switch is allowed within the first 15 days of your first live class, subject to seat availability in the target cohort and any fee difference between the two programs.
+
+Q: Do you provide a laptop or hardware?
+A: No. Learners are expected to have their own computer with an internet connection. A machine with at least 8 GB RAM is recommended for the Data Science program.
+
+Q: What happens if I miss a live class?
+A: Every live class is recorded and made available in your dashboard within a few hours. You can also attend doubt-clearing sessions held separately during the week.
+
+Q: Is there any support after I finish the program?
+A: Yes. Alumni retain lifetime access to course material updates and to the alumni community. Career services remain available for 12 months after program completion.

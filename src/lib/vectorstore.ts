@@ -1,6 +1,6 @@
 import { Index } from "@upstash/vector";
-import { ENV } from "./config.js";
-import type { Chunk } from "./types.js";
+import { ENV } from "./config";
+import type { Chunk } from "./types";
 
 // The ONLY file that knows about Upstash. Swapping stores touches ~this file.
 // (DESIGN §a/§i)

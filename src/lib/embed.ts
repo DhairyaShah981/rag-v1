@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { CONFIG, ENV } from "./config.js";
+import { CONFIG, ENV } from "./config";
 
 const openai = new OpenAI({ apiKey: ENV.OPENAI_API_KEY });
 

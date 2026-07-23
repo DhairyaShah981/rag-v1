@@ -1,9 +1,9 @@
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { chunkDocs } from "../src/lib/chunk.js";
-import { parseFile } from "../src/lib/parse.js";
-import type { Chunk } from "../src/lib/types.js";
+import { chunkDocs } from "../src/lib/chunk";
+import { parseFile } from "../src/lib/parse";
+import type { Chunk } from "../src/lib/types";
 
 const CORPUS_DIR = "corpus";
 const MANIFEST_PATH = ".ingest_manifest.json";
@@ -72,15 +72,15 @@ async function main() {
   // Order: upsert → delete → write manifest. A crash before the manifest write
   // leaves it describing the OLD state, so the next run retries. (DESIGN §b2)
   if (toUpsert.length) {
-    const { embed } = await import("../src/lib/embed.js");
-    const { upsert } = await import("../src/lib/vectorstore.js");
+    const { embed } = await import("../src/lib/embed");
+    const { upsert } = await import("../src/lib/vectorstore");
     console.log(`embedding ${toUpsert.length} chunks...`);
     const vectors = await embed(toUpsert.map((c) => c.text));
     await upsert(toUpsert, vectors);
     console.log("upserted.");
   }
   if (toDelete.length) {
-    const { remove } = await import("../src/lib/vectorstore.js");
+    const { remove } = await import("../src/lib/vectorstore");
     await remove(toDelete);
     console.log(`deleted ${toDelete.length} orphans.`);
   }
@@ -88,7 +88,7 @@ async function main() {
   writeFileSync(MANIFEST_PATH, JSON.stringify(newManifest, null, 2) + "\n");
   console.log(`manifest written → ${MANIFEST_PATH}`);
 
-  const { stats } = await import("../src/lib/vectorstore.js");
+  const { stats } = await import("../src/lib/vectorstore");
   const { vectorCount } = await stats();
   console.log(`index vector count: ${vectorCount} (expected ${newIds.size})`);
   if (vectorCount !== newIds.size) {

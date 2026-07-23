@@ -1,0 +1,15 @@
+Scaler — Admissions and Eligibility Criteria (2026 Cohorts)
+
+Clause 1. Educational qualification. Applicants must hold a bachelor's degree in any discipline with an aggregate of at least 50%. Final-year students awaiting their degree are eligible to apply and may enrol conditionally, subject to submitting their degree certificate within six months.
+
+Clause 2. Coding experience. Scaler Academy (Software Development track) requires a minimum of 6 months of prior programming experience in any language. The Data Science and Machine Learning program requires familiarity with basic Python and school-level mathematics; no professional experience is mandatory.
+
+Clause 3. Entrance assessment. Every applicant must clear the Scaler Skills Test (SST), a 90-minute online assessment covering logical reasoning and basic programming. A score of 60% or higher is required to proceed to enrolment. The SST may be reattempted once after a 14-day cooling period.
+
+Clause 4. Age requirement. Applicants must be at least 18 years of age at the time of enrolment. There is no upper age limit.
+
+Clause 5. Working professionals. The programs are designed for working professionals. Live classes are scheduled on weekends and weekday evenings so that learners need not leave their current jobs.
+
+Clause 6. English proficiency. All instruction is in English. Applicants must be comfortable reading technical material and participating in discussions in English. No formal English test is required.
+
+Clause 7. Placement eligibility. Access to the placement and career services is contingent on (a) completing the program with at least 80% attendance, (b) clearing all module assessments, and (c) completing the capstone project. Learners who withdraw or defer forfeit placement eligibility for that cohort.
