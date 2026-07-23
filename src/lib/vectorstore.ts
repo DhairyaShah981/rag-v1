@@ -14,10 +14,13 @@ type StoredMeta = {
 
 export type QueryHit = { chunk: Chunk; score: number };
 
-const index = new Index({
-  url: ENV.UPSTASH_VECTOR_REST_URL,
-  token: ENV.UPSTASH_VECTOR_REST_TOKEN,
-});
+// Lazy init — see embed.ts.
+let _index: Index | null = null;
+const index = () =>
+  (_index ??= new Index({
+    url: ENV.UPSTASH_VECTOR_REST_URL,
+    token: ENV.UPSTASH_VECTOR_REST_TOKEN,
+  }));
 
 // Metadata stored WITH the vector → retrieval is one round-trip, no doc-store join.
 export async function upsert(chunks: Chunk[], vectors: number[][]): Promise<void> {
@@ -33,12 +36,12 @@ export async function upsert(chunks: Chunk[], vectors: number[][]): Promise<void
   }));
   // Upserts are atomic per vector; batch to keep requests reasonable.
   for (let i = 0; i < payload.length; i += 100) {
-    await index.upsert(payload.slice(i, i + 100));
+    await index().upsert(payload.slice(i, i + 100));
   }
 }
 
 export async function query(vector: number[], topK: number): Promise<QueryHit[]> {
-  const res = await index.query({ vector, topK, includeMetadata: true });
+  const res = await index().query({ vector, topK, includeMetadata: true });
   return res.map((r) => {
     const m = r.metadata as StoredMeta;
     return {
@@ -55,10 +58,10 @@ export async function query(vector: number[], topK: number): Promise<QueryHit[]>
 }
 
 export async function remove(ids: string[]): Promise<void> {
-  if (ids.length) await index.delete(ids);
+  if (ids.length) await index().delete(ids);
 }
 
 export async function stats(): Promise<{ vectorCount: number }> {
-  const info = await index.info();
+  const info = await index().info();
   return { vectorCount: info.vectorCount };
 }

@@ -37,24 +37,27 @@ async function main() {
   for (const c of cases) {
     const r = await retrieve(c.query);
     const retrievedSources = new Set(r.scored.map((s) => s.source));
-    const refused = r.used.length === 0;
 
     // Tier 1 — deterministic retrieval recall@k.
     const retrieved =
       c.expected_source == null ? null : retrievedSources.has(c.expected_source);
 
-    // Tier 3 — refusal accuracy for out-of-corpus (scored separately).
-    const refusalCorrect =
-      c.type === "out_of_corpus" ? refused : null;
-
     let answer = REFUSAL;
     let faithfulness: number | null = null;
     let correctness: number | null = null;
 
-    if (!refused) {
+    if (r.used.length > 0) {
       const g = await generate(c.query, r.used);
       answer = g.answer;
     }
+
+    // A refusal is either the no-context short-circuit OR the LLM emitting the
+    // fixed refusal via the closed-book instruction — both count. (DESIGN §d)
+    const refused = r.used.length === 0 || answer.trim() === REFUSAL;
+
+    // Tier 3 — refusal accuracy for out-of-corpus (scored separately).
+    const refusalCorrect =
+      c.type === "out_of_corpus" ? refused : null;
 
     // Tier 2 — judge (gpt-4o-mini) only on in-corpus cases with a real answer.
     if (c.type !== "out_of_corpus") {

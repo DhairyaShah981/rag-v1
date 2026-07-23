@@ -1,0 +1,68 @@
+{
+  "curriculum_handbook.pdf": {
+    "file_hash": "016156f6dae7f5a283ba858a9b6df58b2ede5d04a6d54affe8f1c7ca8f213026",
+    "chunk_ids": [
+      "cbfbe53dbf1e7f62",
+      "e1a04adb519f0ccb",
+      "f97d62cf8d59c508"
+    ]
+  },
+  "eligibility.txt": {
+    "file_hash": "aef27267eee44e28b6fa75c7bb05732742a71e19d7f7fbf9df018afb677a9f3b",
+    "chunk_ids": [
+      "16a37598e55c0d14",
+      "00540aa9b8c08d97",
+      "28447732c3bb8c13",
+      "1c79865ab47222ab",
+      "fbb15b7a8b4a30a9",
+      "7f7508b013d52107",
+      "e93ea9b6aefdc061",
+      "1e3a58c644937ac3"
+    ]
+  },
+  "faq.txt": {
+    "file_hash": "7c73178421165d05f3cad266679b956a314d537e28499e8870522db1fd260b53",
+    "chunk_ids": [
+      "42de8d86783b3ca8",
+      "3985495587c31138",
+      "910ffe60e019dcf9",
+      "01ba6b3bc9a85b0f",
+      "70db4e7654789b37",
+      "d5ad5bd28ce0c1b3",
+      "399197ccd24db07d",
+      "3c28d677c0a1e19b",
+      "c883f89f85aaf460",
+      "e9ec83ec6211fcca"
+    ]
+  },
+  "placement_report.pdf": {
+    "file_hash": "204f01e10c2bcdac164ebe008a3de0d15e9701738d78649390c2e23190cddd56",
+    "chunk_ids": [
+      "d054465d8e0d077a",
+      "72b30a150c191988",
+      "b40e1e9f323c98b7"
+    ]
+  },
+  "pricing.json": {
+    "file_hash": "7c8be78e04af7fffbdcfde82aab32b6490796a3c69ba43525c841d2ea6cc52b0",
+    "chunk_ids": [
+      "ff1e606762738af0",
+      "70f6b80b82c7b23d",
+      "459cc6271ccdac6c"
+    ]
+  },
+  "refund_policy.txt": {
+    "file_hash": "c5af62b686c008c90de052954d75273dcd999abaa74753757a3e9a28d5d80bae",
+    "chunk_ids": [
+      "a83d8d8bab32abd3",
+      "f87f3d3dff62a2b7",
+      "679861f3c052ff79",
+      "3e80ec2d846db56a",
+      "a40713242ce5ce30",
+      "e8769ba27e8a4002",
+      "5d2b4502d5077385",
+      "c8c15ec82d096cd9",
+      "8f9aa816394cf9e8"
+    ]
+  }
+}

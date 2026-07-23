@@ -1,7 +1,10 @@
 import OpenAI from "openai";
 import { CONFIG, ENV } from "./config";
 
-const openai = new OpenAI({ apiKey: ENV.OPENAI_API_KEY });
+// Lazy: construct on first use, not at import — so bundlers/build steps that
+// merely import this module don't touch env (which may be absent at build time).
+let _openai: OpenAI | null = null;
+const openai = () => (_openai ??= new OpenAI({ apiKey: ENV.OPENAI_API_KEY }));
 
 // string[] → number[][]. Batching + retry in ONE place, shared by ingest and
 // query, so the SAME embedding model is guaranteed on both paths. (DESIGN §c/§i)
@@ -10,7 +13,7 @@ export async function embed(texts: string[]): Promise<number[][]> {
   for (let i = 0; i < texts.length; i += CONFIG.EMBED_BATCH_SIZE) {
     const batch = texts.slice(i, i + CONFIG.EMBED_BATCH_SIZE);
     const res = await withRetry(() =>
-      openai.embeddings.create({ model: CONFIG.EMBED_MODEL, input: batch }),
+      openai().embeddings.create({ model: CONFIG.EMBED_MODEL, input: batch }),
     );
     // API preserves input order.
     for (const d of res.data) out.push(d.embedding);

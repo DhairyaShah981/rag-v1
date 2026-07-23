@@ -2,7 +2,9 @@ import OpenAI from "openai";
 import { CONFIG, ENV } from "./config";
 import type { Scored } from "./types";
 
-const openai = new OpenAI({ apiKey: ENV.OPENAI_API_KEY });
+// Lazy init — see embed.ts.
+let _openai: OpenAI | null = null;
+const openai = () => (_openai ??= new OpenAI({ apiKey: ENV.OPENAI_API_KEY }));
 
 // Exact system prompt from DESIGN §d.
 const SYSTEM_PROMPT = `You are a support assistant for an edtech company. Answer the user's
@@ -19,7 +21,11 @@ Rules:
 4. Do not mention "context" or "passages" — write as if you know the
    policy. Citations are the only meta-reference.
 5. Be concise. Prefer the document's own terminology (exact figures,
-   deadlines, policy names) over paraphrase.`;
+   deadlines, policy names) over paraphrase.
+6. Applying a rule stated in the context to the user's specific situation is
+   NOT outside knowledge. If the context gives a threshold or deadline (e.g.
+   "no refund after 15 days") and the user asks about a specific value (e.g.
+   "day 20"), apply the rule and answer, citing the passage.`;
 
 export type GenerateResult = {
   answer: string;
@@ -39,7 +45,7 @@ export async function generate(q: string, chunks: Scored[]): Promise<GenerateRes
     .join("\n\n");
 
   const t0 = performance.now();
-  const res = await openai.chat.completions.create({
+  const res = await openai().chat.completions.create({
     model: CONFIG.GEN_MODEL,
     temperature: CONFIG.TEMPERATURE,
     messages: [
